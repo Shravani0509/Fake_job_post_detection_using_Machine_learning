@@ -1,0 +1,35 @@
+{% if prediction %}
+        <div class="card p-4 mb-4 {% if prediction == 'Fraudulent' %}fraud{% else %}legit{% endif %}">
+            <h2 class="text-center mb-3">Analysis Result</h2>
+            <div class="text-center display-4 {% if prediction == 'Fraudulent' %}text-danger{% else %}text-success{% endif %}">
+                {{ prediction }} ({{ confidence }}% confidence)
+            </div>
+            <div class="text-center mt-3">
+                <p><strong>Reason:</strong> {{ explanation }}</p>
+            </div>
+            {% if prediction == 'Fraudulent' %}
+            <div class="alert alert-danger mt-4">
+                <h4><i class="fas fa-exclamation-triangle me-2"></i>Warning</h4>
+                <p>This job posting shows characteristics of fraudulent listings. Please exercise caution.</p>
+            </div>
+            {% else %}
+            <div class="alert alert-success mt-4">
+                <h4><i class="fas fa-check-circle me-2"></i>Legitimate Posting</h4>
+                <p>This job posting appears to be legitimate.</p>
+                {% if location_suggestions %}
+                <div class="mt-3">
+                    <h5>Location Suggestions:</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for loc in location_suggestions %}
+                        <span class="badge bg-primary">{{ loc }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

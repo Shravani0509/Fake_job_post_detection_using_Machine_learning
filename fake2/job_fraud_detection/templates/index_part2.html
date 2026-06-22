@@ -1,0 +1,15 @@
+<div class="mb-3">
+                    <label for="salary" class="form-label">Salary Mentioned</label>
+                    <input type="text" class="form-control" id="salary" name="salary" value="{% if request.form.salary %}{{ request.form.salary }}{% endif %}">
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role / Work Description</label>
+                    <textarea class="form-control" id="role" name="role" rows="3">{% if request.form.role %}{{ request.form.role }}{% endif %}</textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shield-alt me-2"></i>Check for Fraud
+                    </button>
+                </div>
+            </form>
+        </div>

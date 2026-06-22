@@ -1,0 +1,4 @@
+Job Fraud Detection Selenium Test Report
+========================================
+Prediction: Error (0% confidence)
+Explanation: Reason: Model inference failed.

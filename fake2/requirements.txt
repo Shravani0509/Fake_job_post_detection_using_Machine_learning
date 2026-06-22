@@ -1,0 +1,7 @@
+Flask
+Flask-Login
+scikit-learn
+pandas
+joblib
+scipy
+Faker

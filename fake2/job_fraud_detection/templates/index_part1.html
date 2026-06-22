@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Job Fraud Detection{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card p-4 mb-4">
+            <h1 class="text-center mb-4">Job Fraud Detection</h1>
+            <form method="POST" action="/predict">
+                <div class="mb-3">
+                    <label for="job_description" class="form-label">Job Description</label>
+                    <textarea class="form-control" id="job_description" name="job_description" rows="5" required>{% if request.form.job_description %}{{ request.form.job_description }}{% endif %}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" value="{% if request.form.location %}{{ request.form.location }}{% endif %}" required>
+                </div>
